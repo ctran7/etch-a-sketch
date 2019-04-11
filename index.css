@@ -1,0 +1,21 @@
+html,body{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#parent{
+  display: grid;
+  align-content: start;
+  overflow: hidden;
+  margin: auto;
+  background-color: pink;
+  width: 600px;
+  height: 600px;
+
+}
+
+.child{
+	border: 1px solid black;
+	box-sizing: border-box;
+}
