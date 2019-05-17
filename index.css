@@ -1,7 +1,13 @@
 html,body{
 	height: 100%;
 	display: flex;
+  flex-direction: column;
 	justify-content: center;
+}
+
+#submit_div{
+  height: 20px;
+  text-align: center; 
 }
 
 #parent{
@@ -9,13 +15,18 @@ html,body{
   align-content: start;
   overflow: hidden;
   margin: auto;
-  background-color: pink;
   width: 600px;
   height: 600px;
+  border: 1px solid black;
 
 }
 
 .child{
 	border: 1px solid black;
 	box-sizing: border-box;
+}
+
+
+.after_click{
+  display: none;
 }
