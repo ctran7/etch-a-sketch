@@ -61,12 +61,12 @@ footer{
   display: inline-grid;
   width: 550px;
   height: 550px;
-  border: 1px solid black;
+  border: 1px solid white;
 
 }
 
 .child{
-	border: 1px solid black;
+	border: 1px solid white;
 	box-sizing: border-box;
 }
 
@@ -103,5 +103,10 @@ button{
 
 .after_click:hover, .after_click:focus {
   border: solid 1px grey;
+}
+
+
+a:link {
+    color: #25776b;
 }
 

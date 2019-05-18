@@ -16,8 +16,6 @@ colorful.addEventListener('click', function(e){
 })
 
 
-
-
 //reset button calls the reset function to reset grid back to blank canvas
 let resetGrid = document.querySelector('#reset');
 resetGrid.addEventListener('click', reset);
@@ -26,13 +24,26 @@ resetGrid.addEventListener('click', reset);
 let btn = document.querySelector('#submit_button');
 btn.addEventListener('click', grid_submit);
 
+//allows users to submit values by the enter key and stopping reloading page on enter key
+let my_form = document.getElementById("dimension_form");
+my_form.onkeypress = function(e) {
+  var key = e.charCode || e.keyCode || 0;     
+  if (key == 13) {
+    console.log("hi");
+    e.preventDefault();
+    btn.click();
+  }
+}
+
+
+
 //colors the targeted gridspace
 function color(e)
 {
   const target = e.target;
     if (isColored == 0)
     {
-    target.style.backgroundColor = "pink";
+    target.style.backgroundColor = "black";
     }
     else {target.style.backgroundColor = randomColor();}
 }
@@ -105,7 +116,7 @@ function createDivs(dimension)
     for ( let i = 0; i < (dimension * dimension); i++) {
       var newDiv = document.createElement('div');
       newDiv.style.height = newHeight;
-      newDiv.style.background = "#a8c9ff";
+      newDiv.style.background = "#e26c3d";
       newDiv.addEventListener('mouseover', color);
       newDiv.classList.add('child');
       x.appendChild(newDiv);
