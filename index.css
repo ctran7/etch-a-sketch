@@ -1,22 +1,66 @@
 html,body{
-	height: 100%;
-	display: flex;
+margin:0; padding:0; border:0;
+}
+
+
+button{
+  border-radius: 25px;
+}
+
+body{
+  display: flex;
   flex-direction: column;
-	justify-content: center;
+  text-align: center;
+	height: 100%;
+  background-color: #ffdb58;
+}
+
+header{
+  font-family: 'Roboto Slab', sans-serif;
+  width: 100%;
+  height: 75px;
+  background-color: #3cd8c9;
+  color: white;
+  font-size: 60px;
+}
+
+p{
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 5px;
+
+}
+
+footer{
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  background-color: #3cd8c9;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
 }
 
 #submit_div{
-  height: 20px;
+  display: inline-flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  height: 30px;
+  align-self: center;
   text-align: center; 
+  padding-bottom: 20px;
+
 }
 
 #parent{
-  display: grid;
-  align-content: start;
-  overflow: hidden;
   margin: auto;
-  width: 600px;
-  height: 600px;
+  display: inline-grid;
+  width: 550px;
+  height: 550px;
   border: 1px solid black;
 
 }
@@ -27,6 +71,37 @@ html,body{
 }
 
 
-.after_click{
-  display: none;
+button{
+  align-self: center;
+  border-radius: 25px;
+  height: 25px;
+  width: 75px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
 }
+
+#textbox{
+  border: 0;
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#submit_button{
+  background-color: red;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.after_click{
+  display:none;
+}
+
+.after_click:hover, .after_click:focus {
+  border: solid 1px grey;
+}
+

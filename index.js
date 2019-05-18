@@ -1,4 +1,4 @@
-//start off by having one color
+//start off by having one possible color to color the grids
 let isColored = 0;
 
 //sets back to having only one color
@@ -15,11 +15,18 @@ colorful.addEventListener('click', function(e){
   
 })
 
+
+
+
+//reset button calls the reset function to reset grid back to blank canvas
+let resetGrid = document.querySelector('#reset');
+resetGrid.addEventListener('click', reset);
+
 //waits for a submit click to begin creating the grid
 let btn = document.querySelector('#submit_button');
-btn.addEventListener('click', submit);
+btn.addEventListener('click', grid_submit);
 
-
+//colors the targeted gridspace
 function color(e)
 {
   const target = e.target;
@@ -30,6 +37,8 @@ function color(e)
     else {target.style.backgroundColor = randomColor();}
 }
 
+
+//returns a random color
 function randomColor()
 {
   let r1 = Math.floor(Math.random() * (255)); 
@@ -40,12 +49,25 @@ function randomColor()
   return color;
 }
 
+//resets grid to empty canvas, removes all children
+function reset()
+{
+  let parent = document.getElementById('parent');
+  if(parent.firstChild)
+  {
+    while (parent.firstChild)
+    {
+      parent.removeChild(parent.firstChild);
+    }
+
+  }
+}
 
 //on click, reveals previously hidden buttons to configure coloring the grid
 //removes any previous grid created by submit button
 // and creates new grid based on dimension given by user
 
-function submit(e){
+function grid_submit(e){
 
   let more_buttons = document.getElementsByClassName("after_click");
   for (i = 0; i< more_buttons.length; i++)
@@ -70,6 +92,7 @@ function submit(e){
   createDivs(x);
 
 }
+
 
 //creates dimensions of the grid based on user input
 //scales to make sure it will fit into the grid width and height
