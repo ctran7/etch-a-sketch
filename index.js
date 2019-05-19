@@ -29,7 +29,6 @@ let my_form = document.getElementById("dimension_form");
 my_form.onkeypress = function(e) {
   var key = e.charCode || e.keyCode || 0;     
   if (key == 13) {
-    console.log("hi");
     e.preventDefault();
     btn.click();
   }
@@ -77,31 +76,39 @@ function reset()
 //on click, reveals previously hidden buttons to configure coloring the grid
 //removes any previous grid created by submit button
 // and creates new grid based on dimension given by user
+// also added input validation
 
 function grid_submit(e){
 
-  let more_buttons = document.getElementsByClassName("after_click");
-  for (i = 0; i< more_buttons.length; i++)
-  {
-      console.log(more_buttons[i].style.display);
-      if (more_buttons[i].style.display == "") {
-      more_buttons[i].style.display = "inline";
-      }
+
+  let input_val = document.getElementById("textbox").value;
+  let input_val_number = Number(input_val);
+
+  if (isNaN(input_val_number)){
+    alert("You have entered an invalid value. Please enter an integer value. Example: 5");
+    document.getElementById("textbox").value = "";
   }
+  else {
+        let more_buttons = document.getElementsByClassName("after_click");
+        for (i = 0; i< more_buttons.length; i++)
+        {
+             console.log(more_buttons[i].style.display);
+             if (more_buttons[i].style.display == "") {
+             more_buttons[i].style.display = "inline";
+             }
+        }
 
-  let parent = document.getElementById('parent');
-  if(parent.firstChild)
-  {
-    while (parent.firstChild)
-    {
-      parent.removeChild(parent.firstChild);
-    }
 
+        let parent = document.getElementById('parent');
+
+        if(parent.firstChild){
+            while (parent.firstChild)
+            {  parent.removeChild(parent.firstChild); }
+         }
+
+        let x = document.getElementById('textbox').value;
+        createDivs(x);
   }
-
-  let x = document.getElementById('textbox').value;
-  createDivs(x);
-
 }
 
 
@@ -109,19 +116,18 @@ function grid_submit(e){
 //scales to make sure it will fit into the grid width and height
 function createDivs(dimension)
 {
-	var x = document.getElementById("parent");
-	x.style.gridTemplateColumns = `repeat(${dimension}, 1fr)`;
+	let parent_div = document.getElementById("parent");
+	parent_div.style.gridTemplateColumns = `repeat(${dimension}, 1fr)`;
 
-  let newHeight = (x.offsetHeight / dimension) + 'px';
+  let newHeight = (parent_div.offsetHeight / dimension) + 'px';
     for ( let i = 0; i < (dimension * dimension); i++) {
       var newDiv = document.createElement('div');
       newDiv.style.height = newHeight;
       newDiv.style.background = "#e26c3d";
       newDiv.addEventListener('mouseover', color);
       newDiv.classList.add('child');
-      x.appendChild(newDiv);
+      parent_div.appendChild(newDiv);
     }
-	
 }
 
 
